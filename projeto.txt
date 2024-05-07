@@ -1,0 +1,47 @@
+
+### Planejamento e Preparação:
+1. [ ] Definir os requisitos básicos do aplicativo.
+2. [ ] Criar um esboço das telas e da navegação do aplicativo.
+3. [ ] Configurar o ambiente de desenvolvimento (Node.js, React, Redux).
+4. [x] Criar um repositório Git para o projeto.
+
+### Configuração do Projeto:
+5. [ ] Inicializar um projeto React.
+6. [ ] Instalar e configurar o Redux no projeto.
+7. [ ] Criar a estrutura de pastas para organizar o código.
+
+### Desenvolvimento de Recursos:
+8. [ ] Definir a estrutura do estado global da aplicação.
+9. [ ] Criar os redutores para gerenciar o estado dos livros.
+10. [ ] Implementar ações para adicionar, remover e marcar livros como lidos.
+11. [ ] Desenvolver os componentes React para exibir e interagir com a lista de livros.
+12. [ ] Conectar os componentes ao Redux utilizando `react-redux`.
+13. [ ] Adicionar estilos e layout às telas do aplicativo.
+
+### Testes e Depuração:
+14. [ ] Testar cada funcionalidade do aplicativo para garantir que esteja funcionando corretamente.
+15. [ ] Depurar quaisquer erros ou problemas encontrados durante os testes.
+
+### Refatoração e Melhorias:
+16. [ ] Revisar o código e refatorar, se necessário, para garantir uma base sólida.
+17. [ ] Implementar melhorias de usabilidade e design com base no feedback.
+
+### Publicação e Distribuição:
+18. [ ] Preparar o aplicativo para a publicação nas lojas de aplicativos (Google Play Store, Apple App Store).
+19. [ ] Gerar e configurar os arquivos de construção para Android e iOS.
+20. [ ] Testar novamente o aplicativo em diferentes dispositivos e resoluções.
+21. [ ] Publicar o aplicativo nas lojas de aplicativos.
+
+### Documentação:
+22. [ ] Escrever documentação para o código fonte e o processo de desenvolvimento.
+23. [ ] Criar um arquivo README com informações sobre como instalar, configurar e usar o aplicativo.
+
+### Pós-Lançamento:
+24. [ ] Monitorar o desempenho e a estabilidade do aplicativo após o lançamento.
+25. [ ] Coletar feedback dos usuários e considerar novas funcionalidades ou melhorias.
+
+### Aprendizado e Crescimento:
+26. [ ] Refletir sobre o processo de desenvolvimento e identificar lições aprendidas.
+27. [ ] Compartilhar sua experiência e conhecimento com outros desenvolvedores.
+
+Esse to-do list deve ajudá-lo a planejar e acompanhar o desenvolvimento do seu aplicativo de armazenamento de livros com Redux. Adapte conforme necessário e boa sorte com o projeto!

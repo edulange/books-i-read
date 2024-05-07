@@ -1,0 +1,47 @@
+### Configuração Inicial
+- [ ] Criar o projeto React com Redux
+- [ ] Configurar o ambiente de desenvolvimento (React, Redux, bibliotecas de estilização, etc.)
+- [ ] Definir a estrutura de pastas e arquivos do projeto
+
+### Definição do Estado da Aplicação
+- [ ] Identificar as informações necessárias para representar um livro (título, autor, editora, páginas, etc., estilo)
+- [ ] Planejar a estrutura do estado da aplicação no Redux (livros, categorias, etc.)
+- [ ] Criar os redutores e ações iniciais do Redux
+
+### IMPORTANTE
+CRIAR UM INPUT para conseguir utilizar uma API, provavelmente terá que ser pelo ASINC
+e pegar as informações necessárias da API
+Titulo, autor, editora, paginas, thumb, e outras.
+
+### Componentes React
+- [ ] Criar o componente principal da aplicação
+- [ ] Criar o componente de listagem de livros
+- [ ] Criar o componente de detalhes de um livro
+- [ ] Criar o componente de adição/edição de um livro
+- [ ] Conectar os componentes ao estado gerenciado pelo Redux
+
+### Funcionalidades
+- [ ] Implementar a adição de um novo livro
+- [ ] Implementar a edição de um livro existente
+- [ ] Implementar a exclusão de um livro
+- [ ] Implementar a listagem de livros com filtros e ordenação
+- [ ] Implementar a exibição de detalhes de um livro
+
+### Gerenciamento de Categorias
+- [ ] Adicionar a funcionalidade de categorias de livros
+- [ ] Permitir que o usuário associe um livro a uma ou mais categorias
+- [ ] Exibir os livros agrupados por categoria
+
+### Testes e Refatoração
+- [ ] Criar testes unitários para os componentes e redutores
+- [ ] Criar testes de integração para as funcionalidades principais
+- [ ] Refatorar o código para melhorar a legibilidade e manutenibilidade
+
+### Estilização e Layout
+- [ ] Definir o layout e a aparência da aplicação
+- [ ] Implementar a estilização utilizando CSS ou bibliotecas de estilização
+- [ ] Garantir a responsividade da aplicação
+
+### Documentação e Publicação
+- [ ] Documentar o projeto, incluindo instruções de instalação e uso
+- [ ] Publicar a aplicação em um serviço de hospedagem (Netlify, Vercel, etc.)
