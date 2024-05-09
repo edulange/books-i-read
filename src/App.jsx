@@ -1,14 +1,16 @@
-import Layout from './components/Layout'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import React from 'react';
+import Layout from './components/Layout';
+import BooksList from './features/books/BooksList';
+import { Routes, Route } from 'react-router-dom';
 
-const App = () => {
+function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path='/' element={<Layout />} />
-      </Routes>
-    </Router>
-  )
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<BooksList />} />
+      </Route>
+    </Routes>
+  );
 }
 
-export default App
+export default App;
