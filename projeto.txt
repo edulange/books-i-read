@@ -10,6 +10,10 @@
 6. [ ] Instalar e configurar o Redux no projeto.
 7. [ ] Criar a estrutura de pastas para organizar o código.
 
+O componente BookList é responsável por renderizar a lista de livros, que pegara as informações da API, junto com um botão de bookForm
+O componente BookForm permite que o usuário pesquise e adicione novos livros à lista.
+Ele interage com a API para obter detalhes do livro selecionado e adiciona esses detalhes à lista exibida pelo BookList.
+
 ### Desenvolvimento de Recursos:
 8. [ ] Definir a estrutura do estado global da aplicação.
 9. [ ] Criar os redutores para gerenciar o estado dos livros.
