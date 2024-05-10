@@ -41,7 +41,7 @@ const booksSlice = createSlice({
 	},
 })
 
-export const selectAllBooks = (state) => state.booksSlice
+export const selectAllBooks = (state) => state.books
 
 export const { bookAdded } = booksSlice.actions
 
