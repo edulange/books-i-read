@@ -11,7 +11,7 @@ function App() {
 			<Route path='/' element={<Layout />}>
 				<Route index element={<BooksList />} />
 
-				<Route path='post'>
+				<Route path='book'>
 					<Route index element={<AddBookForm />} />
 				</Route>
 
