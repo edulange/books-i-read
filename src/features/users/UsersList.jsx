@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 
 const UsersList = () => {
 	const users = useSelector(selectAllUsers)
-  console.log('users :>> ', users);
 
 	const renderedUsers = users.map((user) => (
 		<li key={user.id}>

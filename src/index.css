@@ -97,18 +97,18 @@ textarea {
   height: 200px;
 }
 
-.postCredit {
+.bookCredit {
   font-size: 1rem;
 }
 
-.postCredit a, 
-.postCredit a:visited {
+.bookCredit a, 
+.bookCredit a:visited {
   margin-right: 0.5rem;
   color: black;
 }
 
-.postCredit a:hover, 
-.postCredit a:focus {
+.bookCredit a:hover, 
+.bookCredit a:focus {
   color: hsla(0, 0%, 0%, 0.75);
 }
 
