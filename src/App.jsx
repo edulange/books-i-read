@@ -4,6 +4,7 @@ import BooksList from './features/books/BooksList'
 import { Routes, Route } from 'react-router-dom'
 import AddBookForm from './features/books/AddBookForm'
 import UsersList from './features/users/UsersList'
+import BookSearch from './features/books/BookSearch'
 
 function App() {
 	return (
@@ -13,6 +14,9 @@ function App() {
 
 				<Route path='book'>
 					<Route index element={<AddBookForm />} />
+				</Route>
+				<Route path='search'>
+					<Route index element={<BookSearch />} />
 				</Route>
 
 				<Route path='user'>
