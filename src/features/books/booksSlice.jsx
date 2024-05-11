@@ -6,14 +6,12 @@ const initialState = [
 		title: 'Lord of the Rings',
 		author: 'Tolkien',
 		pages: '300',
-		genre: 'fantasy',
 	},
 	{
 		id: '2',
 		title: 'Behavorismo',
 		author: 'Skinner',
 		pages: '150',
-		genre: 'Psicologia',
 	},
 ]
 
@@ -25,14 +23,13 @@ const booksSlice = createSlice({
 			reducer(state, action) {
 				state.push(action.payload)
 			},
-			prepare(title, author, pages, genre) {
+			prepare(title, author, pages) {
 				return {
 					payload: {
 						id: nanoid(),
 						title,
 						author,
 						pages,
-						genre,
 						userId,
 					},
 				}

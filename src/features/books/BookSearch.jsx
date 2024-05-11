@@ -36,6 +36,7 @@ function BookSearch() {
 						name='bookTitle'
 						value={query}
 						onChange={handleChange}
+						autoComplete='off'
 					/>
 					<button type='submit'>Search</button>
 				</form>
