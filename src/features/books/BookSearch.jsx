@@ -18,24 +18,46 @@ function BookSearch() {
 				`https://www.googleapis.com/books/v1/volumes?q=${query}&key=${API_KEY}`
 			)
 			setBooksSearched(response.data.items)
-            console.log(response.data.items)
+			console.log(response.data.items)
 		} catch (error) {
 			console.error('Error fetching books:', error)
 		}
 	}
 
 	return (
-		<div>
-			<form onSubmit={handleSubmit}>
-				<input type='text' value={query} onChange={handleChange} />
-				<button type='submit'>Search</button>
-			</form>
-			<ul>
-				{booksSearched.map((book) => (
-					<li key={book.id}>{book.volumeInfo.title}</li>
-				))}
-			</ul>
-		</div>
+		<section>
+			<h2>Pesquise um livro:</h2>
+			<div>
+				<label htmlFor='bookTitle'>Book Title:</label>
+				<form onSubmit={handleSubmit}>
+					<input
+						type='text'
+						id='bookTitle'
+						name='bookTitle'
+						value={query}
+						onChange={handleChange}
+					/>
+					<button type='submit'>Search</button>
+				</form>
+				<ul>
+					{booksSearched.map((book) => (
+						<div key={book.id} className='book-returned'>
+							<li>{book.volumeInfo.title}</li>
+							<li>{book.volumeInfo.pageCount}</li>
+							<li>{book.volumeInfo.authors ? book.volumeInfo.authors : 'Autor não cadastrado'} </li>
+							{book.volumeInfo.imageLinks && book.volumeInfo.imageLinks.thumbnail && (
+								<li>
+									<img
+										src={book.volumeInfo.imageLinks.thumbnail}
+										alt={book.volumeInfo.title}
+									/>
+								</li>
+							)}
+						</div>
+					))}
+				</ul>
+			</div>
+		</section>
 	)
 }
 

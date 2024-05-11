@@ -15,6 +15,7 @@ body {
   font-size: 1.5rem;
 }
 
+
 input,
 textarea,
 button,
@@ -127,4 +128,24 @@ textarea {
 .deleteButton {
   background-color: palevioletred;
   color: white;
+}
+
+.book-returned {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+.book-returned li {
+  margin-bottom: 8px;
+  list-style: none;
+}
+
+.book-returned img {
+  width: 100px; /* Defina a largura da imagem conforme necessário */
+  height: auto; /* Isso garante que a altura seja ajustada automaticamente de acordo com a largura */
+  border-radius: 4px;
 }
