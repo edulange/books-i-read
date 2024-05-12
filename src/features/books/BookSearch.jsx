@@ -1,12 +1,15 @@
 import { useState } from 'react'
-import { bookAdded } from './booksSlice'
-import { useDispatch } from 'react-redux'
+import { bookAdded, selectAllBooks } from './booksSlice'
+import { useDispatch, useSelector } from 'react-redux'
 import axios from 'axios'
 
 function BookSearch() {
 	const dispatch = useDispatch()
 	const [query, setQuery] = useState('')
 	const [booksSearched, setBooksSearched] = useState([])
+
+
+	const books = useSelector(selectAllBooks)
 
 	const API_KEY = 'AIzaSyBvNISArxveorwGdJGbiVl1xpg-SXpW3Fc'
 
@@ -25,9 +28,12 @@ function BookSearch() {
 		}
 	}
 
-	const onAddBookClick = (event) => {
-		dispatch(bookAdded(title, author, pages))
+	const onAddBookClick = (title, author, pages, thumbnail) => {
+		dispatch(bookAdded(title, author, pages, thumbnail))
+		console.log('Livro adicionado:', { title, author, pages, thumbnail })
+		console.log(books)
 	}
+
 
 	return (
 		<section>
@@ -47,11 +53,22 @@ function BookSearch() {
 				</form>
 				<ul>
 					{booksSearched.map((book) => (
-						<div key={book.id} className='book-returned' onClick={onAddBookClick}>
+						<div
+							key={book.id}
+							className='book-returned'
+							onClick={() =>
+								onAddBookClick(
+									book.volumeInfo.title,
+									book.volumeInfo.authors[0],
+									book.volumeInfo.pageCount,
+									book.volumeInfo.imageLinks.thumbnail
+								)
+							}
+						>
 							<li>{book.volumeInfo.title}</li>
 							<li>{book.volumeInfo.pageCount}</li>
 							<li>
-								{book.volumeInfo.authors ? book.volumeInfo.authors : 'Autor não cadastrado'}{' '}
+								{book.volumeInfo.authors ? book.volumeInfo.authors : 'Autor não cadastrado'}
 							</li>
 							{book.volumeInfo.imageLinks && book.volumeInfo.imageLinks.thumbnail && (
 								<li>

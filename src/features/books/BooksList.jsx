@@ -12,6 +12,7 @@ const BooksList = () => {
 			<p>{book.author}</p>
 			<p>{book.pages}</p>
 			<p>{book.genre}</p>
+			<img src={book.thumbnail} alt={book.title} />
 		</article>
 	))
 
