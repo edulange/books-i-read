@@ -1,15 +1,16 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
+import { bookAdded } from './booksSlice'
+import { useDispatch } from 'react-redux'
 import axios from 'axios'
 
 function BookSearch() {
+	const dispatch = useDispatch()
 	const [query, setQuery] = useState('')
 	const [booksSearched, setBooksSearched] = useState([])
 
 	const API_KEY = 'AIzaSyBvNISArxveorwGdJGbiVl1xpg-SXpW3Fc'
 
-	const handleChange = (event) => {
-		setQuery(event.target.value)
-	}
+	const handleChange = (event) => setQuery(event.target.value)
 
 	const handleSubmit = async (event) => {
 		event.preventDefault()
@@ -24,8 +25,8 @@ function BookSearch() {
 		}
 	}
 
-	const handleAddBook = (event) => {
-		console.log('clicado')
+	const onAddBookClick = (event) => {
+		dispatch(bookAdded(title, author, pages))
 	}
 
 	return (
@@ -46,7 +47,7 @@ function BookSearch() {
 				</form>
 				<ul>
 					{booksSearched.map((book) => (
-						<div key={book.id} className='book-returned' onClick={handleAddBook}>
+						<div key={book.id} className='book-returned' onClick={onAddBookClick}>
 							<li>{book.volumeInfo.title}</li>
 							<li>{book.volumeInfo.pageCount}</li>
 							<li>
