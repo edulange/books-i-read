@@ -24,6 +24,10 @@ function BookSearch() {
 		}
 	}
 
+	const handleAddBook = (event) => {
+		console.log('clicado')
+	}
+
 	return (
 		<section>
 			<h2>Pesquise um livro:</h2>
@@ -42,10 +46,12 @@ function BookSearch() {
 				</form>
 				<ul>
 					{booksSearched.map((book) => (
-						<div key={book.id} className='book-returned'>
+						<div key={book.id} className='book-returned' onClick={handleAddBook}>
 							<li>{book.volumeInfo.title}</li>
 							<li>{book.volumeInfo.pageCount}</li>
-							<li>{book.volumeInfo.authors ? book.volumeInfo.authors : 'Autor não cadastrado'} </li>
+							<li>
+								{book.volumeInfo.authors ? book.volumeInfo.authors : 'Autor não cadastrado'}{' '}
+							</li>
 							{book.volumeInfo.imageLinks && book.volumeInfo.imageLinks.thumbnail && (
 								<li>
 									<img
