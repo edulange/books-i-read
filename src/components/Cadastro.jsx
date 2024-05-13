@@ -62,105 +62,84 @@ const Cadastro = ({ onCadastrado, usuarioSelecionado, setUsuarioSelecionado, set
 	}
 
 	return (
-		<form onSubmit={handleSubmit}>
-			<div className='bg-white shadow-md rounded px-8 pt-3 pb-8 mb-4 flex flex-col my-2'>
-				<div className='-mx-3 md:flex mb-6'>
-					<div className='md:w-full px-3 mb-6 md:mb-0'>
-						<label
-							className='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'
-							htmlFor='nome'
-						>
-							Nome
-						</label>
-						<input
-							className='appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white'
-							id='nome'
-							type='text'
-							placeholder='Digite seu nome'
-							value={nome}
-							onChange={(event) => setNome(event.target.value)}
-							required={true}
-						/>
-					</div>
+		<form onSubmit={handleSubmit} className='custom-form'>
+			<div className='custom-input-container'>
+				<div className='custom-input-wrapper'>
+					<label className='custom-label' htmlFor='nome'>
+						Nome
+					</label>
+					<input
+						className='custom-input'
+						id='nome'
+						type='text'
+						placeholder='Digite seu nome'
+						value={nome}
+						onChange={(event) => setNome(event.target.value)}
+						required={true}
+					/>
 				</div>
-				<div className='-mx-3 md:flex mb-6'>
-					<div className='md:w-full px-3'>
-						<label
-							className='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'
-							htmlFor='telefone'
-						>
-							Telefone
-						</label>
-						<PatternFormat
-							required={true}
-							format='(##) #####-####'
-							placeholder='(##) #####-####'
-							className='appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white'
-							id='telefone'
-							type='text'
-							value={telefone}
-							onChange={(event) => setTelefone(event.target.value)}
-						/>
-					</div>
+			</div>
+			<div className='custom-input-container'>
+				<div className='custom-input-wrapper'>
+					<label className='custom-label' htmlFor='telefone'>
+						Telefone
+					</label>
+					<PatternFormat
+						required={true}
+						format='(##) #####-####'
+						placeholder='(##) #####-####'
+						className='custom-input'
+						id='telefone'
+						type='text'
+						value={telefone}
+						onChange={(event) => setTelefone(event.target.value)}
+					/>
 				</div>
-				<div className='-mx-3 md:flex mb-6'>
-					<div className='md:w-full px-3'>
-						<label
-							className='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'
-							htmlFor='email'
-						>
-							E-mail
-						</label>
-						<input
-							required={true}
-							className='appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white'
-							id='email'
-							type='text'
-							placeholder='Digite seu e-mail'
-							value={email}
-							onChange={(event) => setEmail(event.target.value)}
-						/>
-					</div>
+			</div>
+			<div className='custom-input-container'>
+				<div className='custom-input-wrapper'>
+					<label className='custom-label' htmlFor='email'>
+						E-mail
+					</label>
+					<input
+						required={true}
+						className='custom-input'
+						id='email'
+						type='text'
+						placeholder='Digite seu e-mail'
+						value={email}
+						onChange={(event) => setEmail(event.target.value)}
+					/>
 				</div>
-				<div className='-mx-3 md:flex mb-6'>
-					<div className='md:w-full px-3'>
-						<label
-							className='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2'
-							htmlFor='dataNascimento'
-						>
-							Data de Nascimento
-						</label>
-						<PatternFormat
-							required={true}
-							format='##/##/####'
-							placeholder='DD/MM/YYYY'
-							className='appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white'
-							id='dataNascimento'
-							type='text'
-							value={dataNascimento}
-							onChange={(event) => setDataNascimento(event.target.value)}
-						/>
-					</div>
+			</div>
+			<div className='custom-input-container'>
+				<div className='custom-input-wrapper'>
+					<label className='custom-label' htmlFor='dataNascimento'>
+						Data de Nascimento
+					</label>
+					<PatternFormat
+						required={true}
+						format='##/##/####'
+						placeholder='DD/MM/YYYY'
+						className='custom-input'
+						id='dataNascimento'
+						type='text'
+						value={dataNascimento}
+						onChange={(event) => setDataNascimento(event.target.value)}
+					/>
 				</div>
-				<div className='flex items-center gap-3'>
-					<button
-						className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline'
-						type='submit'
-					>
-						{usuarioSelecionado ? 'Atualizar Usuário' : 'Cadastrar'}
+			</div>
+			<div className='custom-button-container'>
+				<button className='custom-button' type='submit'>
+					{usuarioSelecionado ? 'Atualizar Usuário' : 'Cadastrar'}
+				</button>
+				{usuarioSelecionado ? (
+					<button type='button' onClick={limparFormulario} className='custom-button'>
+						Limpar
 					</button>
-					{usuarioSelecionado ? (
-						<button
-							type='button'
-							onClick={limparFormulario}
-							className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline'
-						>
-							Limpar
-						</button>
-					) : (
-						''
-					)}
-				</div>
+				) : (
+					''
+				)}
 			</div>
 		</form>
 	)

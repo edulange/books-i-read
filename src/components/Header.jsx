@@ -12,7 +12,7 @@ const Header = () => {
                     <li><Link to='user'>Users</Link></li>
                     <li><Link to='search'>Search</Link></li>
                     <li><Link to='cadastro'>Cadastro</Link></li>
-                    <li><Link to='tabelaUsuarios'>Cadastro</Link></li>
+                    <li><Link to='tabelaUsuarios'>Usuarios</Link></li>
                 </ul>
             </nav>
         </header>

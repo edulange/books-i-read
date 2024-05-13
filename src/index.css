@@ -1,155 +1,277 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
 html {
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-  background-color: white;
-  color: #000;
+	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+	background-color: white;
+	color: #000;
 }
 
 body {
-  min-height: 100vh;
-  font-size: 1.5rem;
+	min-height: 100vh;
+	font-size: 1.5rem;
 }
-
 
 input,
 textarea,
 button,
 select {
-  font: inherit;
-  margin-bottom: 1em;
+	font: inherit;
+	margin-bottom: 1em;
 }
 
 header {
-  padding: 1rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  background-color: purple;
-  color: whitesmoke;
-  position: sticky;
-  top: 0;
+	padding: 1rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	background-color: purple;
+	color: whitesmoke;
+	position: sticky;
+	top: 0;
 }
 
 nav {
-  display: flex;
-  justify-content: flex-end;
+	display: flex;
+	justify-content: flex-end;
 }
 
 nav ul {
-  list-style-type: none;
+	list-style-type: none;
 }
 
 nav ul li {
-  display: inline-block;
-  margin-right: 1rem;
+	display: inline-block;
+	margin-right: 1rem;
 }
 
-nav a, nav a:visited {
-  color: #fff;
-  text-decoration: none;
+nav a,
+nav a:visited {
+	color: #fff;
+	text-decoration: none;
 }
 
-nav a:hover, nav a:focus {
-  text-decoration: underline;
+nav a:hover,
+nav a:focus {
+	text-decoration: underline;
 }
 
-/* main {
-  max-width: 500px;
+main {
+  max-width: 800px;
   margin: auto;
-} */
+}
 
 section {
-  margin-top: 1em;
+	margin-top: 1em;
 }
 
 article {
-  margin: 0.5em;
-  border: 1px solid #000;
-  border-radius: 10px;
-  padding: 1em;
+	margin: 0.5em;
+	border: 1px solid #000;
+	border-radius: 10px;
+	padding: 1em;
 }
 
 h1 {
-  font-size: 3.5rem;
+	font-size: 3.5rem;
 }
 
 h2 {
-  margin-bottom: 1rem;
+	margin-bottom: 1rem;
 }
 
 p {
-  font-family: Arial, Helvetica, sans-serif;
-  line-height: 1.4;
-  font-size: 1.2rem;
-  margin: 0.5em 0;
+	font-family: Arial, Helvetica, sans-serif;
+	line-height: 1.4;
+	font-size: 1.2rem;
+	margin: 0.5em 0;
 }
 
 form {
-  display: flex;
-  flex-direction: column;
+	display: flex;
+	flex-direction: column;
 }
 
 textarea {
-  height: 200px;
+	height: 200px;
 }
 
 .bookCredit {
-  font-size: 1rem;
+	font-size: 1rem;
 }
 
-.bookCredit a, 
+.bookCredit a,
 .bookCredit a:visited {
-  margin-right: 0.5rem;
-  color: black;
+	margin-right: 0.5rem;
+	color: black;
 }
 
-.bookCredit a:hover, 
+.bookCredit a:hover,
 .bookCredit a:focus {
-  color: hsla(0, 0%, 0%, 0.75);
+	color: hsla(0, 0%, 0%, 0.75);
 }
 
 .excerpt {
-  font-style: italic;
+	font-style: italic;
 }
 
 .reactionButton {
-  margin: 0 0.25em 0 0;
-  background: transparent;
-  border: none;
-  color: #000;
-  font-size: 1rem;
+	margin: 0 0.25em 0 0;
+	background: transparent;
+	border: none;
+	color: #000;
+	font-size: 1rem;
 }
 
 .deleteButton {
-  background-color: palevioletred;
-  color: white;
+	background-color: palevioletred;
+	color: white;
 }
 
 .book-returned {
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  padding: 16px;
-  margin-bottom: 16px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  background-color: #fff;
+	border: 1px solid #ccc;
+	border-radius: 8px;
+	padding: 16px;
+	margin-bottom: 16px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	background-color: #fff;
 }
 
 .book-returned li {
-  margin-bottom: 8px;
-  list-style: none;
+	margin-bottom: 8px;
+	list-style: none;
 }
 
 .book-returned img {
-  width: 100px; /* Defina a largura da imagem conforme necessário */
-  height: auto; /* Isso garante que a altura seja ajustada automaticamente de acordo com a largura */
-  border-radius: 4px;
+	width: 100px; /* Defina a largura da imagem conforme necessário */
+	height: auto; /* Isso garante que a altura seja ajustada automaticamente de acordo com a largura */
+	border-radius: 4px;
+}
+
+.table-container {
+	overflow-x: auto;
+	padding: 8px;
+	padding-top: 2px;
+	padding-bottom: 8px;
+	margin-bottom: 4px;
+	display: flex;
+	flex-direction: column;
+	margin-top: 2px;
+	background-color: #ffffff;
+}
+
+.custom-table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.custom-table thead {
+	background-color: #e2e8f0;
+}
+
+.custom-table th {
+	padding: 0.75rem 1rem;
+	text-align: left;
+	color: #4a5568;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+.custom-table td {
+	padding: 1rem 1.5rem;
+	white-space: nowrap;
+}
+
+.custom-table tbody tr:hover {
+	background-color: #edf2f7;
+}
+
+.custom-table tbody tr.border-b {
+	border-bottom: 1px solid #e2e8f0;
+}
+
+.custom-table button {
+	padding: 0.5rem 1rem;
+	border-radius: 0.25rem;
+	margin: 0.25rem;
+	cursor: pointer;
+}
+
+.custom-table button.edit {
+	background-color: #4299e1;
+	color: #ffffff;
+}
+
+.custom-table button.edit:hover {
+	background-color: #3182ce;
+}
+
+.custom-table button.delete {
+	background-color: #e53e3e;
+	color: #ffffff;
+}
+
+.custom-table button.delete:hover {
+	background-color: #c53030;
+}
+
+/* index.css */
+.custom-form {
+	/* Adicione estilos de form container se necessário */
+}
+
+.custom-input-container {
+	margin-bottom: 1rem; /* Espaçamento entre os campos */
+}
+
+.custom-input-wrapper {
+	margin-bottom: 1rem; /* Espaçamento entre os campos */
+}
+
+.custom-label {
+	/* Estilos para a etiqueta do campo */
+	display: block;
+	font-size: 0.875rem;
+	color: #4a5568;
+	margin-bottom: 0.25rem;
+}
+
+.custom-input {
+	/* Estilos para o campo de entrada */
+	width: 100%;
+	padding: 0.5rem;
+	font-size: 1rem;
+	color: #4a5568;
+	border: 1px solid #cbd5e0;
+	border-radius: 0.25rem;
+	transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.custom-input:focus {
+	outline: none;
+	border-color: #63b3ed;
+	box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
+}
+
+.custom-button-container {
+	margin-top: 1rem; /* Espaçamento entre os botões e os campos */
+}
+
+.custom-button {
+	/* Estilos para os botões */
+	background-color: #4a90e2;
+	color: white;
+	font-weight: bold;
+	padding: 0.5rem 1rem;
+	border: none;
+	border-radius: 0.25rem;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+}
+
+.custom-button:hover {
+	background-color: #357db5;
 }
