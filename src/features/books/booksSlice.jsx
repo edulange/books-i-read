@@ -1,47 +1,48 @@
-import { createSlice, nanoid } from '@reduxjs/toolkit'
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import axios from 'axios';
 
-const initialState = [
-	{
-		id: '1',
-		title: 'Lord of the Rings',
-		author: 'Tolkien',
-		pages: '300',
-		thumbnail: 'http://books.google.com/books/content?id=V-HoEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api'
-	},
-	{
-		id: '2',
-		title: 'Behavorismo',
-		author: 'Skinner',
-		pages: '150',
-		thumbnail: "http://books.google.com/books/content?id=7-plOlnjnzwC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
-	},
-]
+const initialState = {
+  books: [],
+  status: 'idle',
+  error: null,
+};
+
+export const fetchBooks = createAsyncThunk('books/fetchBooks', async () => {
+  const response = await axios.get('http://localhost:3001/api/books');
+  return response.data;
+});
+
+/*
+export const addNewBook = createAsyncThunk('books/addNewBook', async (book) => {
+  const response = await axios.post('/api/books', book);
+  return response.data;
+}); */
 
 const booksSlice = createSlice({
-	name: 'books',
-	initialState,
-	reducers: {
-		bookAdded: {
-			reducer(state, action) {
-				state.push(action.payload)
-			},
-			prepare(title, author, pages, thumbnail) {
-				return {
-					payload: {
-						id: nanoid(),
-						title,
-						author,
-						pages,
-						thumbnail
-					},
-				}
-			},
-		},
-	},
-})
+  name: 'books',
+  initialState,
+  reducers: {},
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchBooks.pending, (state) => {
+        state.status = 'loading';
+      })
+      .addCase(fetchBooks.fulfilled, (state, action) => {
+        state.status = 'succeeded';
+        state.books = action.payload;
+      })
+      .addCase(fetchBooks.rejected, (state, action) => {
+        state.status = 'failed';
+        state.error = action.error.message;
+      })
+    //   .addCase(addNewBook.fulfilled, (state, action) => {
+    //     state.books.push(action.payload);
+    //   });
+  },
+});
 
-export const selectAllBooks = (state) => state.books
+export const selectAllBooks = (state) => state.books.books;
+export const getBooksStatus = (state) => state.books.status;
+export const getBooksError = (state) => state.books.error;
 
-export const { bookAdded } = booksSlice.actions
-
-export default booksSlice.reducer
+export default booksSlice.reducer;

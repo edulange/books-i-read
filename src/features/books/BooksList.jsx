@@ -1,31 +1,36 @@
-import { useSelector } from 'react-redux'
-import { selectAllBooks } from './booksSlice'
-import { selectAllUsers } from '../users/usersSlice'
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchBooks, selectAllBooks, getBooksStatus, getBooksError } from './booksSlice';
 
 const BooksList = () => {
-	const books = useSelector(selectAllBooks)
-	const users = useSelector(selectAllUsers)
+  const dispatch = useDispatch();
+  const books = useSelector(selectAllBooks);
+  const booksStatus = useSelector(getBooksStatus);
+  const booksError = useSelector(getBooksError);
 
-	const renderedBooks = books.map((book) => (
-		<article key={book.id}>
-			<h3>{book.title}</h3>
-			<p>{book.author}</p>
-			<p>{book.pages}</p>
-			<p>{book.genre}</p>
-			<img src={book.thumbnail} alt={book.title} />
-		</article>
-	))
+  useEffect(() => {
+    if (booksStatus === 'idle') {
+      dispatch(fetchBooks());
+    }
+  }, [booksStatus, dispatch]);
 
-	return (
-		<section>
-			<h2>Books</h2>
-			<button>butão</button>
-			{renderedBooks}
-		</section>
-	)
-}
+  const renderedBooks = books.map((book) => (
+    <article key={book.ID}>
+      <h3>{book.TITLE}</h3>
+      <p>{book.AUTHOR}</p>
+      <p>{book.PAGES}</p>
+      <img src={book.THUMBNAIL} alt={book.TITLE} />
+    </article>
+  ));
 
-export default BooksList
+  return (
+    <section>
+      <h2>Books</h2>
+      {booksStatus === 'loading' && <div>Loading...</div>}
+      {booksStatus === 'failed' && <div>Deu erro no fetch: {booksError}</div>}
+      {booksStatus === 'succeeded' && renderedBooks}
+    </section>
+  );
+};
 
-/* o que eu quero que apareça aqui no bookList?
-os livros com a foto do livro, nome do autor embaixo em itálico */
+export default BooksList;
