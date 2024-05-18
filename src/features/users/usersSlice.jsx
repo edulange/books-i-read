@@ -1,16 +1,36 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 
-const initialState = [
-    { id: 0, name: 'Eduardo Lange'},
-    { id: 1, name: 'Teste de pessoa'}
-]
-
-const usersSlice = createSlice({
-    name: 'users',
-    initialState,
-    reducers: {}
+// Definindo a ação assíncrona para buscar os usuários
+export const fetchUsers = createAsyncThunk('users/fetchUsers', async () => {
+	const response = await fetch('http://localhost:3001/api/usuarios')
+	const data = await response.json()
+	return data // O payload da ação será os dados dos usuários
 })
 
-export const selectAllUsers = (state) => state.users
+const usersSlice = createSlice({
+	name: 'users',
+	initialState: {
+		users: [],
+		status: 'idle',
+		error: null,
+	},
+	reducers: {},
+	extraReducers: (builder) => {
+		builder
+			.addCase(fetchUsers.pending, (state) => {
+				state.status = 'loading'
+			})
+			.addCase(fetchUsers.fulfilled, (state, action) => {
+				state.status = 'succeeded'
+				state.users = action.payload // Atualiza o estado com os dados dos usuários
+			})
+			.addCase(fetchUsers.rejected, (state, action) => {
+				state.status = 'failed'
+				state.error = action.error.message // Armazena a mensagem de erro
+			})
+	},
+})
+
+export const selectAllUsers = (state) => state.users.users
 
 export default usersSlice.reducer

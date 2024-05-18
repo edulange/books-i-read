@@ -1,22 +1,41 @@
-import { useSelector } from 'react-redux'
-import { selectAllUsers } from './usersSlice'
-import { Link } from 'react-router-dom'
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchUsers, selectAllUsers } from './usersSlice';
+import { Link } from 'react-router-dom';
 
 const UsersList = () => {
-	const users = useSelector(selectAllUsers)
+  const dispatch = useDispatch();
+  const users = useSelector(selectAllUsers);
+  const userStatus = useSelector((state) => state.users.status);
+  const error = useSelector((state) => state.users.error);
+  console.log(users)
 
-	const renderedUsers = users.map((user) => (
-		<li key={user.id}>
-			<Link to={`/user/${user.id}`}> {user.name}</Link> 
-      {/* preciso ajustar ainda esse Link XD  */}
-		</li>
-	))
-	return (
-		<section>
-			<h2>Users</h2>
-			<ul>{renderedUsers}</ul>
-		</section>
-	)
-}
+  useEffect(() => {
+    if (userStatus === 'idle') {
+      dispatch(fetchUsers());
+    }
+  }, [userStatus, dispatch]);
 
-export default UsersList
+  if (userStatus === 'loading') {
+    return <div>Loading...</div>;
+  }
+
+  if (userStatus === 'failed') {
+    return <div>Error: {error}</div>;
+  }
+
+  const renderedUsers = users.map((user) => (
+    <li key={user.ID}>
+      <Link to={`/user/${user.ID}`}>{user.NAME}</Link>
+    </li>
+  ));
+
+  return (
+    <section>
+      <h2>Users</h2>
+      <ul>{renderedUsers}</ul>
+    </section>
+  );
+};
+
+export default UsersList;
