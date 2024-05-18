@@ -7,6 +7,7 @@ const BooksList = () => {
   const books = useSelector(selectAllBooks);
   const booksStatus = useSelector(getBooksStatus);
   const booksError = useSelector(getBooksError);
+  console.log('books :>> ', books);
 
   useEffect(() => {
     if (booksStatus === 'idle') {

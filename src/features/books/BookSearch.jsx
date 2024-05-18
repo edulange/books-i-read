@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import {  selectAllBooks } from './booksSlice'
+import {  selectAllBooks, addBook} from './booksSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import axios from 'axios'
 
@@ -27,13 +27,18 @@ function BookSearch() {
 			console.error('Error fetching books:', error)
 		}
 	}
-
-	const onAddBookClick = (title, author, pages, thumbnail) => {
-		dispatch(bookAdded(title, author, pages, thumbnail))
-		console.log('Livro adicionado:', { title, author, pages, thumbnail })
-		console.log(books)
-	}
-
+	const onAddBookClick = async (title, author, pages, thumbnail) => {
+		const newBook = {
+		  title,
+		  author,
+		  pages,
+		  thumbnail,
+		};
+		await dispatch(addBook(newBook));
+		console.log('Livro adicionado:', newBook);
+		console.log(books);
+	  };
+	
 
 	return (
 		<section>
