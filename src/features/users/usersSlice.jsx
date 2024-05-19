@@ -7,6 +7,12 @@ export const fetchUsers = createAsyncThunk('users/fetchUsers', async () => {
 	return data // O payload da ação será os dados dos usuários
 })
 
+export const addUser = createAsyncThunk('users/addUser', async (newUser) => {
+	const response = await fetch('http://localhost:3001/api/usuarios', newUser)
+	const data = await response.json()
+	return data
+})
+
 const usersSlice = createSlice({
 	name: 'users',
 	initialState: {
