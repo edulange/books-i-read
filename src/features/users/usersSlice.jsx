@@ -1,11 +1,18 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 
+const getToken = () => localStorage.getItem('token')
+
 // Definindo a ação assíncrona para buscar os usuários
 export const fetchUsers = createAsyncThunk('users/fetchUsers', async () => {
-	const response = await fetch('http://localhost:3001/api/usuarios')
-	const data = await response.json()
-	return data // O payload da ação será os dados dos usuários
-})
+	const token = getToken(); // Obtém o token JWT armazenado
+	const response = await fetch('http://localhost:3001/api/usuarios', {
+	  headers: {
+		'Authorization': `Bearer ${token}`, // Adiciona o token ao cabeçalho de autorização
+	  },
+	});
+	const data = await response.json();
+	return data; // O payload da ação será os dados dos usuários
+  });
 
 export const addUser = createAsyncThunk('users/addUser', async (newUser) => {
 	const response = await fetch('http://localhost:3001/api/usuarios', newUser)

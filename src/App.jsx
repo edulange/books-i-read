@@ -8,39 +8,52 @@ import BookSearch from './features/books/BookSearch'
 import Cadastro from './components/Cadastro'
 import TabelaUsuarios from './components/TabelaUsuarios'
 import { useState } from 'react'
-import { ToastContainer } from 'react-toastify'
-
+import Login from './components/Login'
 
 function App() {
-    const [atualizaTabela, setAtualizaTabela] = useState(false);
-    const [usuarioSelecionado, setUsuarioSelecionado] = useState(null);
+	const [atualizaTabela, setAtualizaTabela] = useState(false)
+	const [usuarioSelecionado, setUsuarioSelecionado] = useState(null)
 
-    function handleAtualizaTabela() {
-        setAtualizaTabela(!atualizaTabela);
-    }
-
-
-
+	function handleAtualizaTabela() {
+		setAtualizaTabela(!atualizaTabela)
+	}
 
 	return (
 		<Routes>
 			<Route path='/' element={<Layout />}>
-				<Route index element={<BooksList />} />
+				<Route index element={<Login />} />
+				<Route  element={<BooksList />} />
 
 				<Route path='book'>
 					<Route index element={<AddBookForm />} />
 				</Route>
 
 				<Route path='cadastro'>
-					<Route index element={<Cadastro onCadastrado={handleAtualizaTabela} usuarioSelecionado={usuarioSelecionado} setUsuarioSelecionado={setUsuarioSelecionado}/>} />
+					<Route
+						index
+						element={
+							<Cadastro
+								onCadastrado={handleAtualizaTabela}
+								usuarioSelecionado={usuarioSelecionado}
+								setUsuarioSelecionado={setUsuarioSelecionado}
+							/>
+						}
+					/>
 				</Route>
 
 				<Route path='tabelaUsuarios'>
-					
-					<Route index element={<TabelaUsuarios atualizaTabela={atualizaTabela} onAtualizaTabela={handleAtualizaTabela} setUsuarioSelecionado={setUsuarioSelecionado} />} />
+					<Route
+						index
+						element={
+							<TabelaUsuarios
+								atualizaTabela={atualizaTabela}
+								onAtualizaTabela={handleAtualizaTabela}
+								setUsuarioSelecionado={setUsuarioSelecionado}
+							/>
+						}
+					/>
 				</Route>
 
-		
 				<Route path='search'>
 					<Route index element={<BookSearch />} />
 				</Route>
