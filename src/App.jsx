@@ -8,6 +8,7 @@ import BookSearch from './features/books/BookSearch'
 import Cadastro from './components/Cadastro'
 import TabelaUsuarios from './components/TabelaUsuarios'
 import Login from './components/Login'
+import Register from './components/Register'
 import ProtectedRoute from './routes/ProtectedRoute'
 import { AuthProvider } from './hooks/useAuth'
 
@@ -16,6 +17,8 @@ function App() {
 		<AuthProvider>
 			<Routes>
 				<Route path='/login' element={<Login />} />
+				<Route path="/register" element={<Register />} />
+
 				<Route
 					path='/*'
 					element={

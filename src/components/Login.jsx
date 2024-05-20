@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
 
 const Login = () => {
-  const [name, setUsername] = useState('');
+  const [name, setName] = useState('');
   const [password, setPassword] = useState('');
   const { login } = useAuth();
   const navigate = useNavigate();
@@ -21,13 +21,18 @@ const Login = () => {
     }
   };
 
+  const handleRegister = () => {
+    navigate('/register'); // Navega para a página de registro
+  };
+
+
   return (
     <div>
       <h2>Login</h2>
       <input
         type="text"
         value={name}
-        onChange={(e) => setUsername(e.target.value)}
+        onChange={(e) => setName(e.target.value)}
         placeholder="Username"
       />
       <input
@@ -37,6 +42,9 @@ const Login = () => {
         placeholder="Password"
       />
       <button onClick={handleLogin}>Login</button>
+      <div>
+        <button onClick={handleRegister}>Registrar</button>
+      </div>
     </div>
   );
 };
