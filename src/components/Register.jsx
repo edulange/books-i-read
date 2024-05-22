@@ -11,11 +11,12 @@ const Register = () => {
 		try {
             await axios.post('http://localhost:3001/api/register', { name, password });
             alert('Registro bem-sucedido!');
-            await navigate('/login');
+            navigate('/');
 		} catch (error) {
 			alert('Erro ao fazer login. Verifique as credenciais e tente novamente.')
 		}
 	}
+
 	return (
 		<form>
 			<input
