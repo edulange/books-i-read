@@ -37,5 +37,3 @@ const Register = () => {
 }
 
 export default Register
-
-its been a while jesus christ
