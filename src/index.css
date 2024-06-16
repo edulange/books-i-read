@@ -6,7 +6,7 @@
 
 html {
 	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-	background-color: white;
+	background-color: #ffff;
 	color: #000;
 }
 
@@ -23,6 +23,30 @@ select {
 	margin-bottom: 1em;
 }
 
+.login-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background: beige;
+	padding: 20px;
+	border-radius: 8px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 
 header {
 	padding: 1rem;
 	display: flex;
@@ -146,8 +170,8 @@ textarea {
 }
 
 .book-returned img {
-	width: 100px; /* Defina a largura da imagem conforme necessário */
-	height: auto; /* Isso garante que a altura seja ajustada automaticamente de acordo com a largura */
+	width: 100px; 
+	height: auto; 
 	border-radius: 4px;
 }
 
@@ -218,21 +242,18 @@ textarea {
 	background-color: #c53030;
 }
 
-/* index.css */
-.custom-form {
-	/* Adicione estilos de form container se necessário */
-}
+
 
 .custom-input-container {
-	margin-bottom: 1rem; /* Espaçamento entre os campos */
+	margin-bottom: 1rem; 
 }
 
 .custom-input-wrapper {
-	margin-bottom: 1rem; /* Espaçamento entre os campos */
+	margin-bottom: 1rem; 
 }
 
 .custom-label {
-	/* Estilos para a etiqueta do campo */
+
 	display: block;
 	font-size: 0.875rem;
 	color: #4a5568;
@@ -240,7 +261,7 @@ textarea {
 }
 
 .custom-input {
-	/* Estilos para o campo de entrada */
+
 	width: 100%;
 	padding: 0.5rem;
 	font-size: 1rem;
@@ -257,11 +278,11 @@ textarea {
 }
 
 .custom-button-container {
-	margin-top: 1rem; /* Espaçamento entre os botões e os campos */
+	margin-top: 1rem; 
 }
 
 .custom-button {
-	/* Estilos para os botões */
+
 	background-color: #4a90e2;
 	color: white;
 	font-weight: bold;
@@ -275,3 +296,5 @@ textarea {
 .custom-button:hover {
 	background-color: #357db5;
 }
+
+ */

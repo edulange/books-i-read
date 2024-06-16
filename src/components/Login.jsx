@@ -27,8 +27,8 @@ const Login = () => {
 
 
   return (
-    <div>
-      <h2>Login</h2>
+    <div className='login-container'>
+      <h3>Login</h3>
       <input
         type="text"
         value={name}
@@ -43,7 +43,8 @@ const Login = () => {
       />
       <button onClick={handleLogin}>Login</button>
       <div>
-        <button onClick={handleRegister}>Registrar</button>
+        <p>Dont have an account?</p>
+        <button onClick={handleRegister}>Register</button>
       </div>
     </div>
   );
